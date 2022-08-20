@@ -1,23 +1,53 @@
-.artist ol li {
+.artist ol #card {
     list-style: none;
-}
-
-.artist .content {
+    width: fit-content;
     margin: 25px 15px;
 }
 
-.artist .content a {
-    width: 500px;
+.artist ol #card a {
+    width: 100%;
     height: fit-content;
     padding: 10px;
+    display: block;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: -2px -2px 7px rgb(155, 155, 155) inset;
 }
 
-.artist .content a:hover {
-    background-color: aliceblue;
+.artist ol #card a:hover {
+    background-color: #ececec;
+    animation: 0.5s;
+}
+
+.artist ol #card a:active {
+    box-shadow: 2px 2px 7px rgb(155, 155, 155) inset;
+    animation: 0.5s;
 }
 
 .artist #name {
     height: 50px;
-    font-size: large;
-    font-weight: bold;
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-top: 25px;
+}
+
+.artist ol li a .content-text li {
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.artist ol #card #rank {
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: 25px;
+    color: black;
+}
+
+.artist .artist-img {
+    max-width: 100px;
+}
+
+.artist .card-content:hover {
+    background-color: antiquewhite;
 }

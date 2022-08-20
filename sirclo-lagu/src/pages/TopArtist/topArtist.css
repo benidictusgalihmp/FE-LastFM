@@ -1,3 +1,58 @@
+.artist {
+    max-width: 100%;
+    margin: 20vh 4vw 0 4vw;
+}
+
+.artist li {
+    list-style: none;
+}
+
+.artist ul li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.artist ul li h1 {
+    font-size: 4em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: 0.6s;
+}
+
+.artist ul li a {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    padding: 13px 25px;
+    border-radius: 15px;
+    border: solid 2px rgb(155, 155, 155);
+    align-items: center;
+    animation: 0.6s;
+}
+
+.artist ul li a:hover {
+    background-color: #ececec;
+}
+
+.artist ul li a:active {
+    box-shadow: 2px 2px 7px rgb(155, 155, 155) inset;
+}
+
+.artist ul li a img {
+    width: 25px;
+    position: relative;
+    right: inherit;
+    vertical-align: middle;
+}
+
+.artist ul li a p {
+    font-size: 1em;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
 .artist ol {
     display: flex;
     flex-flow: wrap;

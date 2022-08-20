@@ -3,12 +3,8 @@
     margin: 20vh 4vw 0 4vw;
 }
 
-.track button {
-    width: 120px;
-    padding: 8px 15px;
-    margin: 15px;
-    border: none;
-    font-size: 1em;
+.track li {
+    list-style: none;
 }
 
 .track ul li {
@@ -55,10 +51,6 @@
     font-size: 1em;
     margin-right: 15px;
     vertical-align: middle;
-}
-
-.track li {
-    list-style: none;
 }
 
 .track .table-header {

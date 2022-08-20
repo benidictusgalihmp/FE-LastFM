@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import ArtistCard from "../../components/ArtistCard/artistCard";
+import { Link } from "react-router-dom";
 
+import ArtistCard from "../../components/ArtistCard/artistCard";
 import "./topArtist.css";
 
 function TopArtist() {
@@ -26,7 +27,7 @@ function TopArtist() {
         setLoadingArtist(true);
 
         fetch(
-            "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=0b561534a038ff6eab3ce6edfae840ec&format=json"
+            `http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=0b561534a038ff6eab3ce6edfae840ec&format=json`
         )
             .then((response) => {
                 return response.json();
@@ -55,31 +56,20 @@ function TopArtist() {
 
     return (
         <div className="artist">
+            <ul>
+                <li>
+                    <h1>Top Artist Monthly</h1>
+                    <Link to="/artist/search">
+                        <p>Find</p>
+                        <img src="/search.svg" alt="search button" />
+                    </Link>
+                </li>
+            </ul>
             <ol>
                 {showArtist.map((artists, idx) => {
                     return <ArtistCard artists={artists} key={idx} idx={idx} />;
                 })}
             </ol>
-            <ul className="change-btn">
-                <li>
-                    <button
-                        onClick={() => {
-                            changePage(-1);
-                        }}
-                    >
-                        Previous
-                    </button>
-                </li>
-                <li>
-                    <button
-                        onClick={() => {
-                            changePage(1);
-                        }}
-                    >
-                        Next
-                    </button>
-                </li>
-            </ul>
         </div>
     );
 }
