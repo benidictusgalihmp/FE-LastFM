@@ -1,0 +1,33 @@
+.track button {
+    width: 120px;
+    padding: 8px 15px;
+    margin: 15px;
+    border: none;
+    font-size: 1em;
+}
+
+.track li {
+    list-style: none;
+}
+
+.track ol {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.track .table-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.track .table-header li {
+    display: inline-block;
+}
+
+.track .change-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

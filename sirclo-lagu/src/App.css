@@ -6,6 +6,11 @@
     font-family: "Manrope", sans-serif;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 .App {
     text-align: center;
 }

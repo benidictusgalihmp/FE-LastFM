@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import TrackCard from "../TrackCard/trackCard";
+import { Link } from "react-router-dom";
+
+import TrackCard from "../../components/TrackCard/trackCard";
+import Search from "../../components/Search/Search";
 import "./topTracks.css";
 
 function TopTracks() {
@@ -54,20 +57,19 @@ function TopTracks() {
 
     return (
         <div className="track">
-            <button
-                onClick={() => {
-                    changePage(-1);
-                }}
-            >
-                Previous
-            </button>
-            <button
-                onClick={() => {
-                    changePage(1);
-                }}
-            >
-                Next
-            </button>
+            <Link to="/track/search">Search</Link>
+
+            <ul className="table-header">
+                <li>
+                    <p>Title</p>
+                </li>
+                <li>
+                    <p>Plays</p>
+                </li>
+                <li>
+                    <p>Duration (minutes)</p>
+                </li>
+            </ul>
             {loadingTracks ? (
                 <div>Loading...</div>
             ) : (
@@ -77,6 +79,26 @@ function TopTracks() {
                     })}
                 </ol>
             )}
+            <ul className="change-btn">
+                <li>
+                    <button
+                        onClick={() => {
+                            changePage(-1);
+                        }}
+                    >
+                        Previous
+                    </button>
+                </li>
+                <li>
+                    <button
+                        onClick={() => {
+                            changePage(1);
+                        }}
+                    >
+                        Next
+                    </button>
+                </li>
+            </ul>
         </div>
     );
 }

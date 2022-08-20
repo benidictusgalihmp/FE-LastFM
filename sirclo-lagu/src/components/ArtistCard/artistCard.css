@@ -1,0 +1,23 @@
+.artist ol li {
+    list-style: none;
+}
+
+.artist .content {
+    margin: 25px 15px;
+}
+
+.artist .content a {
+    width: 500px;
+    height: fit-content;
+    padding: 10px;
+}
+
+.artist .content a:hover {
+    background-color: aliceblue;
+}
+
+.artist #name {
+    height: 50px;
+    font-size: large;
+    font-weight: bold;
+}
