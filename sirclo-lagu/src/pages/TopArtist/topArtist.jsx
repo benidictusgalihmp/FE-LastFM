@@ -8,20 +8,6 @@ import "./topArtist.css";
 function TopArtist() {
     const [artists, setArtists] = useState([]);
     const [loadingArtist, setLoadingArtist] = useState(false);
-    const [page, setPage] = useState(0);
-    const [showArtist, setShowArtist] = useState([]);
-
-    useEffect(() => {
-        let artists_len = artists.length;
-        let max_artist_len =
-            artists_len < page * 5 + 5 ? artists_len : page * 5 + 5;
-        let showed_artists = [];
-
-        for (let i = page * 5; i < max_artist_len; i++) {
-            showed_artists.push(artists[i]);
-        }
-        setShowArtist(showed_artists);
-    }, [artists, page]);
 
     useEffect(() => {
         setLoadingArtist(true);
@@ -43,17 +29,6 @@ function TopArtist() {
             });
     }, []);
 
-    const changePage = (delta) => {
-        let upper_page = Math.floor(artists.length / 5);
-        let lower_page = -1;
-
-        if (page + delta < upper_page && page + delta > lower_page) {
-            setPage(page + delta);
-        } else {
-            setPage(page);
-        }
-    };
-
     return (
         <div className="artist">
             <ul>
@@ -65,11 +40,23 @@ function TopArtist() {
                     </Link>
                 </li>
             </ul>
-            <ol>
-                {showArtist.map((artists, idx) => {
-                    return <ArtistCard artists={artists} key={idx} idx={idx} />;
-                })}
-            </ol>
+            {loadingArtist ? (
+                <img id="loader" src="/loader.svg" alt="loading icon" />
+            ) : (
+                <ol>
+                    {artists.map((artists, idx) => {
+                        if (idx < 5) {
+                            return (
+                                <ArtistCard
+                                    artists={artists}
+                                    key={idx}
+                                    idx={idx}
+                                />
+                            );
+                        }
+                    })}
+                </ol>
+            )}
         </div>
     );
 }
