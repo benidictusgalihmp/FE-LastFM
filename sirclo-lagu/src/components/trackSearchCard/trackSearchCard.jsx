@@ -1,15 +1,13 @@
-function TrackSearchCard({ searchTrack }) {
-    console.log(searchTrack);
+function TrackSearchCard({ tracks, idx }) {
+    console.log(tracks);
     return (
-        <li className="card">
-            hei
-            {/* <a href={searchTrack.trackmatches.track.url}>
-                <p className="track-name">
-                    {searchTrack.trackmatches.track.name}
-                </p>
-                <p>{searchTrack.trackmatches.track.playcount}</p>
-                <p>{searchTrack.trackmatches.track.duration}</p>
-            </a> */}
+        <li>
+            <a href={tracks.url} target="_blank">
+                <p>{idx}</p>
+                <p>{tracks.name}</p>
+                <p>{tracks.artist}</p>
+                <p>{tracks.listeners}</p>
+            </a>
         </li>
     );
 }
