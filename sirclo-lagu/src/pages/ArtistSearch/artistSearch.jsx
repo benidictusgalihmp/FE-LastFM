@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 import Search from "../../components/Search/Search";
-import TrackSearchCard from "../../components/TrackSearchCard/trackSearchCard";
-import "./trackSearch.css";
+import ArtistSearchCard from "../../components/ArtistSearchCard/artistSearchCard";
+import "./artistSearch.css";
 
-function TrackSearch() {
+function ArtistSearch() {
     const [query, setQuery] = useState("");
     const [queryResult, setQueryResult] = useState("");
     const [loadingSearch, setLoadingSearch] = useState(false);
@@ -14,7 +14,7 @@ function TrackSearch() {
         setLoadingSearch(true);
 
         fetch(
-            `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${query}&api_key=0b561534a038ff6eab3ce6edfae840ec&format=json`
+            `http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${query}&api_key=0b561534a038ff6eab3ce6edfae840ec&format=json`
         )
             .then((response) => {
                 return response.json();
@@ -31,19 +31,20 @@ function TrackSearch() {
     }, [query]);
 
     return (
-        <div className="track-search">
-            <Search isTrack={true} setText={setQuery} />
+        <div className="artist-search">
+            <Search isTrack={false} setText={setQuery} />
             <div>
                 <ul>
                     {loadingSearch ? (
                         <img id="loader" src="/loader.svg" alt="loading icon" />
                     ) : (
                         <ol>
-                            {queryResult.trackmatches.track.map(
-                                (tracks, idx) => {
+                            {queryResult.artistmatches.artist.map(
+                                (artists, idx) => {
+                                    console.log(artists.image[1]["#text"]);
                                     return (
-                                        <TrackSearchCard
-                                            tracks={tracks}
+                                        <ArtistSearchCard
+                                            artists={artists}
                                             idx={idx}
                                             key={idx}
                                         />
@@ -60,4 +61,4 @@ function TrackSearch() {
     );
 }
 
-export default TrackSearch;
+export default ArtistSearch;

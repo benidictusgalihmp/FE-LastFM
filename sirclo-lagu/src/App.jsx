@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage/home";
 import TopTracks from "./pages/TopTrack/topTracks";
 import TopArtist from "./pages/TopArtist/topArtist";
 import TrackSearch from "./pages/TrackSearch/trackSearch";
+import ArtistSearch from "./pages/ArtistSearch/artistSearch";
 
 function App() {
     return (
@@ -26,7 +27,7 @@ function App() {
                 <Route path="/track" element={<TopTracks />} />
                 <Route path="/track/search" element={<TrackSearch />} />
                 <Route path="/artist" element={<TopArtist />} />
-                {/* <Route path="/artist/search" element={<Search />} /> */}
+                <Route path="/artist/search" element={<ArtistSearch />} />
             </Routes>
         </div>
     );

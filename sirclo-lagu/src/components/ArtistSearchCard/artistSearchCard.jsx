@@ -1,12 +1,10 @@
-import "./artistCard.css";
-
-function ArtistCard({ artists, idx }) {
+function ArtistSearchCard(artists, idx) {
     return (
-        <li id="card">
+        <li>
             <a href={artists.url}>
                 <img
                     id="artist-img"
-                    src={artists.image[0]["#text"]}
+                    src={artists.image[2]["#text"]}
                     alt="artist image"
                 />
                 <p id="name">{artists.name}</p>
@@ -20,19 +18,10 @@ function ArtistCard({ artists, idx }) {
                         />
                         <p id="listeners">{artists.listeners}</p>
                     </li>
-                    <li>
-                        <img
-                            src="/play-circle.svg"
-                            alt="playcount"
-                            title="How many playcount"
-                        />
-                        <p id="playcount">{artists.playcount}</p>
-                    </li>
                 </ul>
             </a>
-            <p id="rank">#{idx + 1}</p>
         </li>
     );
 }
 
-export default ArtistCard;
+export default ArtistSearchCard;
