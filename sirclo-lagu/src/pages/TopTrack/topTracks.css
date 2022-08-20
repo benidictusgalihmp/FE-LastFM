@@ -1,3 +1,8 @@
+.track {
+    max-width: 100%;
+    margin: 20vh 4vw 0 4vw;
+}
+
 .track button {
     width: 120px;
     padding: 8px 15px;
@@ -6,28 +11,74 @@
     font-size: 1em;
 }
 
-.track li {
-    list-style: none;
+.track ul li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.track ol {
-    height: 500px;
+.track ul li h1 {
+    font-size: 4em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: 0.6s;
+}
+
+.track ul li a {
+    height: fit-content;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    padding: 13px 25px;
+    border-radius: 15px;
+    border: solid 2px rgb(155, 155, 155);
+    align-items: center;
+    animation: 0.6s;
+}
+
+.track ul li a:hover {
+    background-color: #ececec;
+}
+
+.track ul li a:active {
+    box-shadow: 2px 2px 7px rgb(155, 155, 155) inset;
+}
+
+.track ul li a img {
+    width: 25px;
+    position: relative;
+    right: inherit;
+    vertical-align: middle;
+}
+
+.track ul li a p {
+    font-size: 1em;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.track li {
+    list-style: none;
 }
 
 .track .table-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    margin: 50px 0 10px 0;
+    align-items: center;
+    border-radius: 15px;
 }
 
-.track .table-header li {
-    display: inline-block;
+.track .table-header p {
+    width: 12vw;
+    margin: 10px 5vw;
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: 700;
 }
 
-.track .change-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.track hr {
+    border: none;
+    height: 2px;
+    background-color: black;
 }

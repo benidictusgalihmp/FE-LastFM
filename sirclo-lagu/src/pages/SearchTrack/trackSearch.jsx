@@ -12,7 +12,7 @@ function TrackSearch() {
     const [showTrack, setShowTrack] = useState([]);
 
     useEffect(() => {
-        if (searchTrack !== undefined) {
+        if (searchTrack !== undefined || !isEmptySearch) {
             setIsEmptySearch(false);
             let tracks_len = searchTrack.length;
             let max_track_len =
@@ -22,6 +22,8 @@ function TrackSearch() {
             for (let i = page * 5; i < max_track_len; i++) {
                 showed_track.push(searchTrack[i]);
             }
+
+            console.log("test", showed_track);
             setShowTrack(showed_track);
         } else if (searchTrack === undefined) {
             setIsEmptySearch(true);

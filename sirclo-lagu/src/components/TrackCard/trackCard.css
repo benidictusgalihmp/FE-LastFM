@@ -1,32 +1,27 @@
 .track .card {
     list-style: none;
-    display: inline-block;
-}
-
-.track .card a:hover {
-    background-color: aliceblue;
-}
-
-.track .card a:active {
-    background-color: antiquewhite;
+    margin: 20px 0;
 }
 
 .track .card a {
-    width: 100%;
-    height: fit-content;
-    padding: 20px 10px;
-    border-radius: 10px;
-    margin: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    padding: 15px 0;
+    border-radius: 15px;
+    box-shadow: -2px -2px 7px rgb(155, 155, 155) inset;
+}
+
+.track .card a:hover {
+    background-color: #ececec;
+    animation: 0.5s;
+}
+
+.track .card a:active {
+    box-shadow: 2px 2px 7px rgb(155, 155, 155) inset;
+    animation: 0.5s;
 }
 
 .track .card a p {
-    width: 10px;
-    margin: auto;
-}
-
-.track .card .track-name {
-    width: 10vw;
+    width: 12vw;
+    margin: 10px 5vw;
 }

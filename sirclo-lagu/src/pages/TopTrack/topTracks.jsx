@@ -3,32 +3,17 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import TrackCard from "../../components/TrackCard/trackCard";
-import Search from "../../components/Search/Search";
 import "./topTracks.css";
 
 function TopTracks() {
     const [tracks, setTracks] = useState([]);
     const [loadingTracks, setLoadingTracks] = useState(false);
-    const [page, setPage] = useState(0);
-    const [showTrack, setShowTrack] = useState([]);
-
-    useEffect(() => {
-        let tracks_len = tracks.length;
-        let max_track_len =
-            tracks_len < page * 5 + 5 ? tracks_len : page * 5 + 5;
-        let showed_track = [];
-
-        for (let i = page * 5; i < max_track_len; i++) {
-            showed_track.push(tracks[i]);
-        }
-        setShowTrack(showed_track);
-    }, [tracks, page]);
 
     useEffect(() => {
         setLoadingTracks(true);
 
         fetch(
-            "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=0b561534a038ff6eab3ce6edfae840ec&format=json"
+            `http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=0b561534a038ff6eab3ce6edfae840ec&format=json`
         )
             .then((response) => {
                 return response.json();
@@ -44,61 +29,41 @@ function TopTracks() {
             });
     }, []);
 
-    const changePage = (delta) => {
-        let upper_page = Math.floor(tracks.length / 5);
-        let lower_page = -1;
-
-        if (page + delta < upper_page && page + delta > lower_page) {
-            setPage(page + delta);
-        } else {
-            setPage(page);
-        }
-    };
-
     return (
         <div className="track">
-            <Link to="/track/search">Search</Link>
-
-            <ul className="table-header">
+            <ul>
                 <li>
-                    <p>Title</p>
-                </li>
-                <li>
-                    <p>Plays</p>
-                </li>
-                <li>
-                    <p>Duration (minutes)</p>
+                    <h1>Top Tracks Monthly</h1>
+                    <Link to="/track/search">
+                        <p>Find</p>
+                        <img src="/search.svg" alt="searh button" />
+                    </Link>
                 </li>
             </ul>
+            <div className="table-header">
+                <p>#</p>
+                <p>Title</p>
+                <p>Plays</p>
+                <p>Duration (minutes)</p>
+            </div>
+            <hr />
             {loadingTracks ? (
-                <div>Loading...</div>
+                <img id="loader" src="/loader.svg" alt="loading icon" />
             ) : (
                 <ol>
-                    {showTrack.map((track, idx) => {
-                        return <TrackCard track={track} key={idx} />;
+                    {tracks.map((track, idx) => {
+                        if (idx < 5) {
+                            return (
+                                <TrackCard
+                                    track={track}
+                                    idx={idx + 1}
+                                    key={idx}
+                                />
+                            );
+                        }
                     })}
                 </ol>
             )}
-            <ul className="change-btn">
-                <li>
-                    <button
-                        onClick={() => {
-                            changePage(-1);
-                        }}
-                    >
-                        Previous
-                    </button>
-                </li>
-                <li>
-                    <button
-                        onClick={() => {
-                            changePage(1);
-                        }}
-                    >
-                        Next
-                    </button>
-                </li>
-            </ul>
         </div>
     );
 }
