@@ -19,7 +19,6 @@
     font-weight: 700;
     font-style: italic;
     letter-spacing: 1px;
-    animation: 0.6s;
 }
 
 .artist ul li a {
@@ -30,7 +29,6 @@
     border-radius: 15px;
     border: solid 2px rgb(155, 155, 155);
     align-items: center;
-    animation: 0.6s;
 }
 
 .artist ul li a:hover {

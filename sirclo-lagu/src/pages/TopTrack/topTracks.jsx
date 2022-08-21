@@ -44,7 +44,7 @@ function TopTracks() {
                 <p>#</p>
                 <p>Title</p>
                 <p>Plays</p>
-                <p>Duration (minutes)</p>
+                <p>Playcounts</p>
             </div>
             <hr />
             {loadingTracks ? (

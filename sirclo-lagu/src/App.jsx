@@ -3,8 +3,8 @@ import "./App.css";
 import Homepage from "./pages/Homepage/home";
 import TopTracks from "./pages/TopTrack/topTracks";
 import TopArtist from "./pages/TopArtist/topArtist";
-import TrackSearch from "./pages/TrackSearch/trackSearch";
-import ArtistSearch from "./pages/ArtistSearch/artistSearch";
+import TrackSearch from "./pages/Search/TrackSearch/trackSearch";
+import ArtistSearch from "./pages/Search/ArtistSearch/artistSearch";
 
 function App() {
     return (

@@ -5,9 +5,9 @@ function TrackCard({ track, idx }) {
         <li className="card">
             <a href={track.url} target="_blank">
                 <p>{idx}</p>
-                <p>{track.name}</p>
+                <p className="title">{track.name}</p>
                 <p>{track.playcount}</p>
-                <p>{track.duration}</p>
+                <p>{track.playcount}</p>
             </a>
         </li>
     );

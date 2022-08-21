@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-import Search from "../../components/Search/search";
-import TrackSearchCard from "../../components/TrackSearchCard/trackSearchCard";
-import "./trackSearch.css";
+import Search from "../../../components/Search/SearchBar/search";
+import ArtistSearchCard from "../../../components/Search/ArtistSearchCard/artistSearchCard";
+import "../searchPage.css";
 
-function TrackSearch() {
+function ArtistSearch() {
     const [query, setQuery] = useState("");
     const [queryResult, setQueryResult] = useState("");
     const [loadingSearch, setLoadingSearch] = useState(false);
@@ -16,7 +16,7 @@ function TrackSearch() {
         setLoadingSearch(true);
 
         fetch(
-            `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${query}&api_key=0b561534a038ff6eab3ce6edfae840ec&format=json`
+            `http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${query}&api_key=0b561534a038ff6eab3ce6edfae840ec&format=json`
         )
             .then((response) => {
                 return response.json();
@@ -34,7 +34,7 @@ function TrackSearch() {
 
     useEffect(() => {
         if (queryResult) {
-            let queryResults_len = queryResult.trackmatches.track.length;
+            let queryResults_len = queryResult.artistmatches.artist.length;
             let max_queryResults_len =
                 queryResults_len < page * 5 + 5
                     ? queryResults_len
@@ -42,7 +42,7 @@ function TrackSearch() {
             let showed_Results = [];
 
             for (let i = page * 5; i < max_queryResults_len; i++) {
-                showed_Results.push(queryResult.trackmatches.track[i]);
+                showed_Results.push(queryResult.artistmatches.artist[i]);
             }
             setShowResult(showed_Results);
         }
@@ -51,7 +51,7 @@ function TrackSearch() {
     const changePage = (delta) => {
         if (queryResult) {
             let upper_page = Math.floor(
-                queryResult.trackmatches.track.length / 5
+                queryResult.artistmatches.artist.length / 5
             );
             let lower_page = -1;
 
@@ -64,9 +64,13 @@ function TrackSearch() {
     };
 
     return (
-        <div className="section track-search">
-            <h1>Search Track</h1>
-            <Search isTrack={true} setText={setQuery} setPagination={setPage} />
+        <div className="section artist-search">
+            <h1>Search Artist</h1>
+            <Search
+                isTrack={false}
+                setText={setQuery}
+                setPagination={setPage}
+            />
             <hr />
             {!queryResult ? (
                 <p></p>
@@ -76,19 +80,24 @@ function TrackSearch() {
                 </p>
             )}
             <div className="container">
-                {loadingSearch ? (
-                    <img id="loader" src="/loader.svg" alt="loading icon" />
-                ) : !queryResult ? (
-                    <p>Nothing to show right now.</p>
-                ) : (
-                    <ol>
-                        {showResult.map((tracks, idx) => {
-                            return (
-                                <TrackSearchCard tracks={tracks} key={idx} />
-                            );
-                        })}
-                    </ol>
-                )}
+                <ul>
+                    {loadingSearch ? (
+                        <img id="loader" src="/loader.svg" alt="loading icon" />
+                    ) : !queryResult ? (
+                        <p>Nothing to show right now.</p>
+                    ) : (
+                        <ol>
+                            {showResult.map((artists, idx) => {
+                                return (
+                                    <ArtistSearchCard
+                                        artists={artists}
+                                        key={idx}
+                                    />
+                                );
+                            })}
+                        </ol>
+                    )}
+                </ul>
             </div>
             <ul className="search-btn">
                 <li>
@@ -115,4 +124,4 @@ function TrackSearch() {
     );
 }
 
-export default TrackSearch;
+export default ArtistSearch;

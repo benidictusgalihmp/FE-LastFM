@@ -1,4 +1,4 @@
-import "./trackSearchCard.css";
+import "../searchCard.css";
 
 function TrackSearchCard({ tracks }) {
     return (

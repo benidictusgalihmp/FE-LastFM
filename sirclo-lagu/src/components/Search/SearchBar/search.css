@@ -12,10 +12,17 @@
 }
 
 .search img {
-    height: inherit;
+    height: 30px;
+    padding: 5px;
     padding-inline: 1.2vw;
+    border-radius: 15px;
 }
 
 .search img:hover {
+    background-color: #ececec;
     cursor: pointer;
+}
+
+.search img:active {
+    box-shadow: 2px 2px 7px rgb(155, 155, 155) inset;
 }

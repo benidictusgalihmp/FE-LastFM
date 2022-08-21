@@ -10,6 +10,14 @@
     box-shadow: -4px -4px 7px rgb(155, 155, 155) inset;
 }
 
+.section .container li a:hover {
+    background-color: #ececec;
+}
+
+.section .container li a:active {
+    box-shadow: 2px 2px 7px rgb(155, 155, 155) inset;
+}
+
 .section .container li a img {
     min-height: 100px;
     width: 100px;

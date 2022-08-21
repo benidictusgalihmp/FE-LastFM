@@ -11,14 +11,16 @@
     box-shadow: -2px -2px 7px rgb(155, 155, 155) inset;
 }
 
+.track .card a .title {
+    font-weight: 700;
+}
+
 .track .card a:hover {
     background-color: #ececec;
-    animation: 0.5s;
 }
 
 .track .card a:active {
     box-shadow: 2px 2px 7px rgb(155, 155, 155) inset;
-    animation: 0.5s;
 }
 
 .track .card a p {

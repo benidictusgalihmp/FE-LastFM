@@ -44,12 +44,18 @@
 }
 
 .search-btn button {
-    padding: 10px 25px;
+    padding: 18px 40px;
+    background-color: white;
     border: none;
     border-radius: 15px;
+    box-shadow: -4px -4px 7px rgb(155, 155, 155) inset;
 }
 
 .search-btn button:hover {
-    background-color: aqua;
+    background-color: #ececec;
     cursor: pointer;
+}
+
+.search-btn button:active {
+    box-shadow: 2px 2px 7px rgb(155, 155, 155) inset;
 }

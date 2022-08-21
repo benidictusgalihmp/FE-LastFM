@@ -1,3 +1,5 @@
+import "../searchCard.css";
+
 function ArtistSearchCard({ artists }) {
     return (
         <li>
