@@ -6,6 +6,7 @@ function Search(props) {
     function SetTextQuery() {
         let searchText = document.getElementById("search-text").value;
         props.setText(searchText);
+        props.setPagination(0);
     }
 
     return (

@@ -6,7 +6,7 @@ function ArtistCard({ artists, idx }) {
             <a href={artists.url}>
                 <img
                     id="artist-img"
-                    src={artists.image[0]["#text"]}
+                    src={artists.image[2]["#text"]}
                     alt="artist image"
                 />
                 <p id="name">{artists.name}</p>

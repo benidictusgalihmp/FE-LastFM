@@ -66,7 +66,7 @@ function TrackSearch() {
     return (
         <div className="track-search">
             <h1>Search Track</h1>
-            <Search isTrack={true} setText={setQuery} />
+            <Search isTrack={true} setText={setQuery} setPagination={setPage} />
             <hr />
             {!queryResult ? (
                 <p></p>
