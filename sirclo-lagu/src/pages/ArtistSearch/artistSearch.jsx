@@ -3,12 +3,13 @@ import { useEffect } from "react";
 
 import Search from "../../components/Search/search";
 import ArtistSearchCard from "../../components/ArtistSearchCard/artistSearchCard";
-import "./artistSearch.css";
 
 function ArtistSearch() {
     const [query, setQuery] = useState("");
     const [queryResult, setQueryResult] = useState("");
     const [loadingSearch, setLoadingSearch] = useState(false);
+    const [page, setPage] = useState(0);
+    const [showResult, setShowResult] = useState([]);
 
     useEffect(() => {
         setLoadingSearch(true);
@@ -30,15 +31,54 @@ function ArtistSearch() {
             });
     }, [query]);
 
+    useEffect(() => {
+        if (queryResult) {
+            let queryResults_len = queryResult.artistmatches.artist.length;
+            let max_queryResults_len =
+                queryResults_len < page * 5 + 5
+                    ? queryResults_len
+                    : page * 5 + 5;
+            let showed_Results = [];
+
+            for (let i = page * 5; i < max_queryResults_len; i++) {
+                showed_Results.push(queryResult.artistmatches.artist[i]);
+            }
+            setShowResult(showed_Results);
+        }
+    }, [queryResult, page]);
+
+    const changePage = (delta) => {
+        if (queryResult) {
+            let upper_page = Math.floor(
+                queryResult.artistmatches.artist.length / 5
+            );
+            let lower_page = -1;
+
+            if (page + delta < upper_page && page + delta > lower_page) {
+                setPage(page + delta);
+            } else {
+                setPage(page);
+            }
+        }
+    };
+
     return (
-        <div className="artist-search">
-            <Search isTrack={false} setText={setQuery} />
+        <div className="section artist-search">
+            <h1>Search Artist</h1>
+            <Search
+                isTrack={false}
+                setText={setQuery}
+                setPagination={setPage}
+            />
+            <hr />
             {!queryResult ? (
                 <p></p>
             ) : (
-                <p>{queryResult["opensearch:totalResults"]} total results.</p>
+                <p className="results-number">
+                    {queryResult["opensearch:totalResults"]} total results.
+                </p>
             )}
-            <div>
+            <div className="container">
                 <ul>
                     {loadingSearch ? (
                         <img id="loader" src="/loader.svg" alt="loading icon" />
@@ -46,23 +86,39 @@ function ArtistSearch() {
                         <p>Nothing to show right now.</p>
                     ) : (
                         <ol>
-                            {queryResult.artistmatches.artist.map(
-                                (artists, idx) => {
-                                    return (
-                                        <ArtistSearchCard
-                                            artists={artists}
-                                            idx={idx}
-                                            key={idx}
-                                        />
-                                    );
-                                }
-                            )}
+                            {showResult.map((artists, idx) => {
+                                return (
+                                    <ArtistSearchCard
+                                        artists={artists}
+                                        key={idx}
+                                    />
+                                );
+                            })}
                         </ol>
                     )}
                 </ul>
             </div>
-            <button>Previous</button>
-            <button>Next</button>
+            <ul className="search-btn">
+                <li>
+                    <button
+                        onClick={() => {
+                            changePage(-1);
+                        }}
+                    >
+                        Previous
+                    </button>
+                </li>
+                <li>{!queryResult ? <p>#</p> : <p>{page + 1}</p>}</li>
+                <li>
+                    <button
+                        onClick={() => {
+                            changePage(1);
+                        }}
+                    >
+                        Next
+                    </button>
+                </li>
+            </ul>
         </div>
     );
 }

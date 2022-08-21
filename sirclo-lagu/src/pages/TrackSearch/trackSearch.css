@@ -1,25 +1,25 @@
-.track-search {
+.section {
     max-width: 100%;
     margin: 20vh 4vw 0 4vw;
 }
 
-.track-search h1 {
+.section h1 {
     margin-bottom: 15px;
 }
 
-.track-search hr {
+.section hr {
     border: none;
     height: 2px;
     background-color: black;
     margin: 30px 30px 10px 30px;
 }
 
-.track-search .results-number {
+.section .results-number {
     text-align: right;
     margin-right: 16vw;
 }
 
-.track-search .container {
+.container {
     margin: 15px 75px 25px;
     min-height: 50vh;
     max-height: fit-content;

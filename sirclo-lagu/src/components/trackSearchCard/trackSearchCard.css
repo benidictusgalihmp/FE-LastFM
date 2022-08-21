@@ -1,8 +1,8 @@
-.track-search .container li {
+.section .container li {
     list-style: none;
 }
 
-.track-search .container li a {
+.section .container li a {
     display: block;
     margin: 25px 15vw;
     padding: 25px 25px;
@@ -10,13 +10,13 @@
     box-shadow: -4px -4px 7px rgb(155, 155, 155) inset;
 }
 
-.track-search .container li a img {
+.section .container li a img {
     width: 100px;
     display: inline-block;
     vertical-align: middle;
 }
 
-.track-search .container li a .status {
+.section .container li a .status {
     width: 250px;
     display: inline-block;
     margin-left: 25px;
@@ -24,16 +24,16 @@
     text-align: left;
 }
 
-.track-search .container li a .status .titles {
+.section .container li a .status .titles {
     font-weight: 700;
 }
 
-.track-search .container li a .status p {
+.section .container li a .status p {
     margin-block: 2px;
     letter-spacing: 1px;
 }
 
-.track-search .container li a .status .status-listeners {
+.section .container li a .status .status-listeners {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -41,12 +41,12 @@
     align-items: center;
 }
 
-.track-search .container li a .status .status-listeners img {
+.section .container li a .status .status-listeners img {
     width: 25px;
     margin: 0;
 }
 
-.track-search .container li a .status .status-listeners p {
+.section .container li a .status .status-listeners p {
     margin-left: 15px;
     letter-spacing: 0;
 }

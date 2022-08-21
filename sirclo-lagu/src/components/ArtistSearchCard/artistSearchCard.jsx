@@ -1,24 +1,23 @@
-function ArtistSearchCard(artists, idx) {
+function ArtistSearchCard({ artists }) {
     return (
         <li>
-            <a href={artists.url}>
-                <img
-                    id="artist-img"
-                    src={artists.image[2]["#text"]}
-                    alt="artist image"
-                />
-                <p id="name">{artists.name}</p>
-                <hr />
-                <ul className="content-text">
-                    <li>
-                        <img
-                            src="/headphones.svg"
-                            alt="listener"
-                            title="Number of listener right now"
-                        />
-                        <p id="listeners">{artists.listeners}</p>
-                    </li>
-                </ul>
+            <a href={artists.url} target="_blank">
+                <img src={artists.image[2]["#text"]} alt="artist image" />
+                <div className="status">
+                    <p className="titles">{artists.name}</p>
+                    <ul className="status-listeners">
+                        <li>
+                            <img
+                                src="/headphones.svg"
+                                alt="headphone"
+                                title="Number of listener right now"
+                            />
+                        </li>
+                        <li>
+                            <p>{artists.listeners}</p>
+                        </li>
+                    </ul>
+                </div>
             </a>
         </li>
     );

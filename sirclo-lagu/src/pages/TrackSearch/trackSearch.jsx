@@ -13,22 +13,6 @@ function TrackSearch() {
     const [showResult, setShowResult] = useState([]);
 
     useEffect(() => {
-        if (queryResult) {
-            let queryResults_len = queryResult.trackmatches.track.length;
-            let max_queryResults_len =
-                queryResults_len < page * 5 + 5
-                    ? queryResults_len
-                    : page * 5 + 5;
-            let showed_Results = [];
-
-            for (let i = page * 5; i < max_queryResults_len; i++) {
-                showed_Results.push(queryResult.trackmatches.track[i]);
-            }
-            setShowResult(showed_Results);
-        }
-    }, [queryResult, page]);
-
-    useEffect(() => {
         setLoadingSearch(true);
 
         fetch(
@@ -48,6 +32,22 @@ function TrackSearch() {
             });
     }, [query]);
 
+    useEffect(() => {
+        if (queryResult) {
+            let queryResults_len = queryResult.trackmatches.track.length;
+            let max_queryResults_len =
+                queryResults_len < page * 5 + 5
+                    ? queryResults_len
+                    : page * 5 + 5;
+            let showed_Results = [];
+
+            for (let i = page * 5; i < max_queryResults_len; i++) {
+                showed_Results.push(queryResult.trackmatches.track[i]);
+            }
+            setShowResult(showed_Results);
+        }
+    }, [queryResult, page]);
+
     const changePage = (delta) => {
         if (queryResult) {
             let upper_page = Math.floor(
@@ -64,7 +64,7 @@ function TrackSearch() {
     };
 
     return (
-        <div className="track-search">
+        <div className="section track-search">
             <h1>Search Track</h1>
             <Search isTrack={true} setText={setQuery} setPagination={setPage} />
             <hr />
