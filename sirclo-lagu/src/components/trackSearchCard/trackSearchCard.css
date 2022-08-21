@@ -11,6 +11,7 @@
 }
 
 .section .container li a img {
+    min-height: 100px;
     width: 100px;
     display: inline-block;
     vertical-align: middle;
@@ -43,6 +44,7 @@
 
 .section .container li a .status .status-listeners img {
     width: 25px;
+    min-height: 0;
     margin: 0;
 }
 
