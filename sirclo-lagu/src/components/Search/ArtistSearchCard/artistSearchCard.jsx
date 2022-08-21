@@ -1,4 +1,5 @@
 import "../searchCard.css";
+import CurrencyFormatter from "../../../module/currencyFormatter";
 
 function ArtistSearchCard({ artists }) {
     return (
@@ -16,7 +17,7 @@ function ArtistSearchCard({ artists }) {
                             />
                         </li>
                         <li>
-                            <p>{artists.listeners}</p>
+                            <p>{CurrencyFormatter(artists.listeners)}</p>
                         </li>
                     </ul>
                 </div>

@@ -1,4 +1,5 @@
 import "../searchCard.css";
+import CurrencyFormatter from "../../../module/currencyFormatter";
 
 function TrackSearchCard({ tracks }) {
     return (
@@ -13,7 +14,7 @@ function TrackSearchCard({ tracks }) {
                             <img src="/headphones.svg" alt="headphone" />
                         </li>
                         <li>
-                            <p>{tracks.listeners}</p>
+                            <p>{CurrencyFormatter(tracks.listeners)}</p>
                         </li>
                     </ul>
                 </div>

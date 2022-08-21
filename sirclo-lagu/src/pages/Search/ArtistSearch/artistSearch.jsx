@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 import Search from "../../../components/Search/SearchBar/search";
 import ArtistSearchCard from "../../../components/Search/ArtistSearchCard/artistSearchCard";
+import CurrencyFormatter from "../../../module/currencyFormatter";
 import "../searchPage.css";
 
 function ArtistSearch() {
@@ -76,7 +77,8 @@ function ArtistSearch() {
                 <p></p>
             ) : (
                 <p className="results-number">
-                    {queryResult["opensearch:totalResults"]} total results.
+                    {CurrencyFormatter(queryResult["opensearch:totalResults"])}{" "}
+                    total results.
                 </p>
             )}
             <div className="container">

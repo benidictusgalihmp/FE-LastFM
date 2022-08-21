@@ -1,4 +1,5 @@
 import "./trackCard.css";
+import CurrencyFormatter from "../../module/currencyFormatter";
 
 function TrackCard({ track, idx }) {
     return (
@@ -6,8 +7,8 @@ function TrackCard({ track, idx }) {
             <a href={track.url} target="_blank">
                 <p>{idx}</p>
                 <p className="title">{track.name}</p>
-                <p>{track.playcount}</p>
-                <p>{track.playcount}</p>
+                <p>{CurrencyFormatter(track.listeners)}</p>
+                <p>{CurrencyFormatter(track.playcount)}</p>
             </a>
         </li>
     );

@@ -1,4 +1,5 @@
 import "./artistCard.css";
+import CurrencyFormatter from "../../module/currencyFormatter";
 
 function ArtistCard({ artists, idx }) {
     return (
@@ -18,7 +19,9 @@ function ArtistCard({ artists, idx }) {
                             alt="listener"
                             title="Number of listener right now"
                         />
-                        <p id="listeners">{artists.listeners}</p>
+                        <p id="listeners">
+                            {CurrencyFormatter(artists.listeners)}
+                        </p>
                     </li>
                     <li>
                         <img
@@ -26,7 +29,9 @@ function ArtistCard({ artists, idx }) {
                             alt="playcount"
                             title="How many playcount"
                         />
-                        <p id="playcount">{artists.playcount}</p>
+                        <p id="playcount">
+                            {CurrencyFormatter(artists.playcount)}
+                        </p>
                     </li>
                 </ul>
             </a>

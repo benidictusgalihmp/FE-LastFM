@@ -43,7 +43,7 @@ function TopTracks() {
             <div className="table-header">
                 <p>#</p>
                 <p>Title</p>
-                <p>Plays</p>
+                <p>Listeners</p>
                 <p>Playcounts</p>
             </div>
             <hr />
