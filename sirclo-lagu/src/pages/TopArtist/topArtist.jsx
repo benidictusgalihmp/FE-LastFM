@@ -33,9 +33,9 @@ function TopArtist() {
         <div className="artist">
             <ul>
                 <li>
-                    <h1>Top Artist Monthly</h1>
+                    <h1>Top Artist This Month</h1>
                     <Link to="/artist/search">
-                        <p>Find</p>
+                        <p>Find Artist</p>
                         <img src="/search.svg" alt="search button" />
                     </Link>
                 </li>

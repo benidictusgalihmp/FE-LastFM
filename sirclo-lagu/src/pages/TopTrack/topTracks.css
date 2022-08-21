@@ -17,6 +17,7 @@
 .track ul li h1 {
     font-size: 4em;
     font-weight: 700;
+    font-style: italic;
     letter-spacing: 1px;
     animation: 0.6s;
 }

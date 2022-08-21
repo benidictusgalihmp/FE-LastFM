@@ -33,9 +33,9 @@ function TopTracks() {
         <div className="track">
             <ul>
                 <li>
-                    <h1>Top Tracks Monthly</h1>
+                    <h1>Top Tracks This Month</h1>
                     <Link to="/track/search">
-                        <p>Find</p>
+                        <p>Find Track</p>
                         <img src="/search.svg" alt="searh button" />
                     </Link>
                 </li>

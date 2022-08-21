@@ -4,9 +4,9 @@ function TrackSearchCard({ tracks }) {
     return (
         <li>
             <a href={tracks.url} target="_blank">
-                <img src={tracks.image[1]["#text"]} alt="artist image" />
+                <img src={tracks.image[2]["#text"]} alt="track image" />
                 <div className="status">
-                    <p>{tracks.name}</p>
+                    <p className="titles">{tracks.name}</p>
                     <p>By {tracks.artist}</p>
                     <ul className="status-listeners">
                         <li>
