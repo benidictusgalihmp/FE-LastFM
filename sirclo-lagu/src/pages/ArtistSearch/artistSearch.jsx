@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-import Search from "../../components/Search/Search";
+import Search from "../../components/Search/search";
 import ArtistSearchCard from "../../components/ArtistSearchCard/artistSearchCard";
 import "./artistSearch.css";
 

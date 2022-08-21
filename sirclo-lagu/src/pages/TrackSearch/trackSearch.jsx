@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 
-import Search from "../../components/Search/Search";
+import Search from "../../components/Search/search";
 import TrackSearchCard from "../../components/TrackSearchCard/trackSearchCard";
 import "./trackSearch.css";
 
@@ -33,36 +33,40 @@ function TrackSearch() {
     return (
         <div className="track-search">
             <Search isTrack={true} setText={setQuery} />
+            <hr />
             {!queryResult ? (
                 <p></p>
             ) : (
-                <p>{queryResult["opensearch:totalResults"]} total results.</p>
+                <p className="results-number">
+                    {queryResult["opensearch:totalResults"]} total results.
+                </p>
             )}
-            <div>
-                <ul>
-                    {loadingSearch ? (
-                        <img id="loader" src="/loader.svg" alt="loading icon" />
-                    ) : !queryResult ? (
-                        <p>Nothing to show right now.</p>
-                    ) : (
-                        <ol>
-                            {queryResult.trackmatches.track.map(
-                                (tracks, idx) => {
-                                    return (
-                                        <TrackSearchCard
-                                            tracks={tracks}
-                                            idx={idx}
-                                            key={idx}
-                                        />
-                                    );
-                                }
-                            )}
-                        </ol>
-                    )}
-                </ul>
+            <div className="container">
+                {loadingSearch ? (
+                    <img id="loader" src="/loader.svg" alt="loading icon" />
+                ) : !queryResult ? (
+                    <p>Nothing to show right now.</p>
+                ) : (
+                    <ol>
+                        {queryResult.trackmatches.track.map((tracks, idx) => {
+                            return (
+                                <TrackSearchCard tracks={tracks} key={idx} />
+                            );
+                        })}
+                    </ol>
+                )}
             </div>
-            <button>Previous</button>
-            <button>Next</button>
+            <ul className="search-btn">
+                <li>
+                    <button>Previous</button>
+                </li>
+                <li>
+                    <p>1</p>
+                </li>
+                <li>
+                    <button>Next</button>
+                </li>
+            </ul>
         </div>
     );
 }

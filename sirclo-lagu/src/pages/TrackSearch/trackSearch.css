@@ -2,3 +2,49 @@
     max-width: 100%;
     margin: 20vh 4vw 0 4vw;
 }
+
+.track-search hr {
+    border: none;
+    height: 2px;
+    background-color: black;
+    margin: 30px 30px 10px 30px;
+}
+
+.track-search .results-number {
+    text-align: left;
+    margin-left: 10vw;
+}
+
+.track-search .container {
+    margin: 25px 75px;
+    min-height: 60vh;
+    max-height: fit-content;
+}
+
+.search-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn li {
+    list-style: none;
+    margin-inline: 25px;
+    font-weight: 700;
+}
+
+.search-btn li p {
+    min-width: 50px;
+}
+
+.search-btn button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 15px;
+}
+
+.search-btn button:hover {
+    background-color: aqua;
+    cursor: pointer;
+}

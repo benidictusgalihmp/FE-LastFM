@@ -1,0 +1,21 @@
+.search {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    margin-inline: 10vw;
+}
+
+.search input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.search img {
+    height: inherit;
+    padding-inline: 1.2vw;
+}
+
+.search img:hover {
+    cursor: pointer;
+}

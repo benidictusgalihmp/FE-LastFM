@@ -1,0 +1,46 @@
+.track-search .container li {
+    list-style: none;
+}
+
+.track-search .container li a {
+    display: block;
+    margin: 15px 15vw;
+    padding: 10px 25px;
+}
+
+.track-search .container li a img {
+    width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.track-search .container li a .status {
+    width: 250px;
+    display: inline-block;
+    margin-left: 25px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.track-search .container li a .status p {
+    margin-block: 2px;
+    letter-spacing: 1px;
+}
+
+.track-search .container li a .status .status-listeners {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-block: 2px;
+    align-items: center;
+}
+
+.track-search .container li a .status .status-listeners img {
+    width: 25px;
+    margin: 0;
+}
+
+.track-search .container li a .status .status-listeners p {
+    margin-left: 15px;
+    letter-spacing: 0;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import "./search.css";
 
 function Search(props) {
     function SetTextQuery() {
@@ -8,8 +9,13 @@ function Search(props) {
     }
 
     return (
-        <div>
-            <input type="text" name="query" id="search-text" required />
+        <div className="search">
+            <input
+                type="text"
+                name="query"
+                id="search-text"
+                placeholder="Type to search..."
+            />
             <img onClick={SetTextQuery} src="/search.svg" alt="Search" />
         </div>
     );
