@@ -3,6 +3,10 @@
     margin: 20vh 4vw 0 4vw;
 }
 
+.track-search h1 {
+    margin-bottom: 15px;
+}
+
 .track-search hr {
     border: none;
     height: 2px;
@@ -11,19 +15,20 @@
 }
 
 .track-search .results-number {
-    text-align: left;
-    margin-left: 10vw;
+    text-align: right;
+    margin-right: 16vw;
 }
 
 .track-search .container {
-    margin: 25px 75px;
-    min-height: 60vh;
+    margin: 15px 75px 25px;
+    min-height: 50vh;
     max-height: fit-content;
 }
 
 .search-btn {
     display: flex;
     flex-direction: row;
+    margin-block: 50px 80px;
     justify-content: center;
     align-items: center;
 }

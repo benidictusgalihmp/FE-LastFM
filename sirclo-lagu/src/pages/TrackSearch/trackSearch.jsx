@@ -9,6 +9,24 @@ function TrackSearch() {
     const [query, setQuery] = useState("");
     const [queryResult, setQueryResult] = useState("");
     const [loadingSearch, setLoadingSearch] = useState(false);
+    const [page, setPage] = useState(0);
+    const [showResult, setShowResult] = useState([]);
+
+    useEffect(() => {
+        if (queryResult) {
+            let queryResults_len = queryResult.trackmatches.track.length;
+            let max_queryResults_len =
+                queryResults_len < page * 5 + 5
+                    ? queryResults_len
+                    : page * 5 + 5;
+            let showed_Results = [];
+
+            for (let i = page * 5; i < max_queryResults_len; i++) {
+                showed_Results.push(queryResult.trackmatches.track[i]);
+            }
+            setShowResult(showed_Results);
+        }
+    }, [queryResult, page]);
 
     useEffect(() => {
         setLoadingSearch(true);
@@ -30,8 +48,24 @@ function TrackSearch() {
             });
     }, [query]);
 
+    const changePage = (delta) => {
+        if (queryResult) {
+            let upper_page = Math.floor(
+                queryResult.trackmatches.track.length / 5
+            );
+            let lower_page = -1;
+
+            if (page + delta < upper_page && page + delta > lower_page) {
+                setPage(page + delta);
+            } else {
+                setPage(page);
+            }
+        }
+    };
+
     return (
         <div className="track-search">
+            <h1>Search Track</h1>
             <Search isTrack={true} setText={setQuery} />
             <hr />
             {!queryResult ? (
@@ -48,7 +82,7 @@ function TrackSearch() {
                     <p>Nothing to show right now.</p>
                 ) : (
                     <ol>
-                        {queryResult.trackmatches.track.map((tracks, idx) => {
+                        {showResult.map((tracks, idx) => {
                             return (
                                 <TrackSearchCard tracks={tracks} key={idx} />
                             );
@@ -58,13 +92,23 @@ function TrackSearch() {
             </div>
             <ul className="search-btn">
                 <li>
-                    <button>Previous</button>
+                    <button
+                        onClick={() => {
+                            changePage(-1);
+                        }}
+                    >
+                        Previous
+                    </button>
                 </li>
+                <li>{!queryResult ? <p>#</p> : <p>{page + 1}</p>}</li>
                 <li>
-                    <p>1</p>
-                </li>
-                <li>
-                    <button>Next</button>
+                    <button
+                        onClick={() => {
+                            changePage(1);
+                        }}
+                    >
+                        Next
+                    </button>
                 </li>
             </ul>
         </div>
