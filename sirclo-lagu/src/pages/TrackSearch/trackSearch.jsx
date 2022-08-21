@@ -33,10 +33,17 @@ function TrackSearch() {
     return (
         <div className="track-search">
             <Search isTrack={true} setText={setQuery} />
+            {!queryResult ? (
+                <p></p>
+            ) : (
+                <p>{queryResult["opensearch:totalResults"]} total results.</p>
+            )}
             <div>
                 <ul>
                     {loadingSearch ? (
                         <img id="loader" src="/loader.svg" alt="loading icon" />
+                    ) : !queryResult ? (
+                        <p>Nothing to show right now.</p>
                     ) : (
                         <ol>
                             {queryResult.trackmatches.track.map(

@@ -1,5 +1,4 @@
 function TrackSearchCard({ tracks, idx }) {
-    console.log(tracks);
     return (
         <li>
             <a href={tracks.url} target="_blank">

@@ -33,15 +33,21 @@ function ArtistSearch() {
     return (
         <div className="artist-search">
             <Search isTrack={false} setText={setQuery} />
+            {!queryResult ? (
+                <p></p>
+            ) : (
+                <p>{queryResult["opensearch:totalResults"]} total results.</p>
+            )}
             <div>
                 <ul>
                     {loadingSearch ? (
                         <img id="loader" src="/loader.svg" alt="loading icon" />
+                    ) : !queryResult ? (
+                        <p>Nothing to show right now.</p>
                     ) : (
                         <ol>
                             {queryResult.artistmatches.artist.map(
                                 (artists, idx) => {
-                                    console.log(artists.image[1]["#text"]);
                                     return (
                                         <ArtistSearchCard
                                             artists={artists}
